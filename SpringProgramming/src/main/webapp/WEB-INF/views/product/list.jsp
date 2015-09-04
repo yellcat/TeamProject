@@ -34,28 +34,7 @@
 				font-size:small;
 				text-align:center;
 			}
-			
-			#buttonGroup {
-				margin: 10px;
-				text-align: center;
-			}
-			
-			#buttonGroup a {
-				display:inline-block;
-				width: 70px;
-				line-height: 30px;
-				text-decoration: none;
-				font-size: small;
-				color: white;
-				border: 1px solid darkgray;
-				background-color: rgb(89,94,113);
-				font-weight: bold;
-			}
-			
-			#buttonGroup a:hover {
-				color: black;
-				background-color: lightgray;
-			}
+		
 		</style>
 	</head>
 	
@@ -92,9 +71,7 @@
 	            </c:if>
 	            <a href="list?pageNo=${totalPageNo}">[맨끝]</a>
 	         </div>
-		<div id="buttonGroup">
-			<a href="writeForm">상품입력</a>
-		</div>
+		
 	</body>
 </html>
 
