@@ -62,56 +62,7 @@ public class ProductController {
 
 		return "product/list";
 	}
-	
-	@RequestMapping("product/writeForm")
-	public String writeForm(){
-		logger.info("writeForm()");
-		return "product/writeForm";
-	}
-	
-	@RequestMapping("product/updateForm")
-	public String updateForm(){
-		logger.info("updateForm()");
-		return "product/updateForm";
-	}
-	
-	@RequestMapping("product/write")
-	public String write(Product product, HttpSession session){
-		//parameter 명과 매개변수 명이 일치할 때 값이 들어온다
-		logger.info("write()");
-		
-		ServletContext application = session.getServletContext();
-		String dirPath = application.getRealPath("/resources/uploadfiles");
-		String originalFilename = product.getAttach().getOriginalFilename();
-		String filesystemName = System.currentTimeMillis() + "-" + originalFilename;
-		String contentType = product.getAttach().getContentType();
-		
-		if(!product.getAttach().isEmpty()){
-			try {
-				product.getAttach().transferTo(new File(dirPath+"/"+filesystemName));
-			} catch (IllegalStateException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		
-		if(!product.getAttach().isEmpty()){
-			product.setOriginalFilename(originalFilename);
-			product.setFilesystemName(filesystemName);
-			product.setContentType(contentType);
-		}
-		productservice.insert(product);
-		
-		return "redirect:/product/list";
-	}
-	
-	@RequestMapping("product/update")
-	public String update(Product product){
-		logger.info("update()");
-		productservice.update(product);
-		return "redirect:/product/detail?productNo="+product.getNo();
-	}
+
 	
 	@RequestMapping("product/detail")
 	public String detail(int productNo, HttpServletRequest request){
@@ -121,10 +72,4 @@ public class ProductController {
 		return "product/detail";
 	}
 	
-	@RequestMapping("product/delete")
-	public String delete(int productNo, HttpServletRequest request){
-		logger.info("detail()");
-		productservice.delete(productNo);
-		return "redirect:product/list";
-	}
 }
