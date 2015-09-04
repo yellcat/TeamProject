@@ -1,5 +1,6 @@
-package com.mycompany.myapp.controller;
+/*package com.mycompany.myapp.controller;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,4 +22,4 @@ public class OrderProductController {
 		request.setAttribute("orderproduct", orderproduct);
 		return "orderproduct/detail";
 	}
-}
+}*/

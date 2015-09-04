@@ -25,17 +25,18 @@ public class OrderProductDao {
 
 	public Integer insert(OrderProduct orderproduct) {
 		Integer pk = null;
-		String sql = "insert into ORDERPRODUCTS (orderproduct_no, order_no, product_no, orderproduct_amount) "
-				+ "values (orderproducts_seq.nextval, ?,?,?)";
+		String sql = "insert into orderproducts (orderproduct_no, order_no, product_no, orderproduct_amount) "
+				+ "values (?,?,?,?)";
 		KeyHolder keyHolder = new GeneratedKeyHolder();
 		jdbcTemplate.update(new PreparedStatementCreator() {
 
 			@Override
 			public PreparedStatement createPreparedStatement(Connection conn) throws SQLException {
 				PreparedStatement pstmt = conn.prepareStatement(sql, new String[] { "ORDERPRODUCT_NO" });
-				pstmt.setInt(1, orderproduct.getOrderno());// (?의 순번,)
-				pstmt.setInt(2, orderproduct.getProductno());
-				pstmt.setInt(3, orderproduct.getOrderproductamount());
+				pstmt.setInt(1, orderproduct.getOrderproductno());
+				pstmt.setInt(2, orderproduct.getOrderno());// (?의 순번,)
+				pstmt.setInt(3, orderproduct.getProductno());
+				pstmt.setInt(4, orderproduct.getOrderproductamount());
 				return pstmt;
 			}
 
