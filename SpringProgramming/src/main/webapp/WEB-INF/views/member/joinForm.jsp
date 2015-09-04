@@ -15,13 +15,13 @@
 				<span>Name</span>
 				<span><input type="text" name="name"></span><br/>
 				<span>Mobile</span>
-				<span><input type="tel" name="tel"></span>
+				<span><input type="tel" name="tel"></span><br/>
 				<span>Address</span>
 				<span><input type="text" name="address"></span><br/>	
 			</div>
 			<div id=buttonGroup>
-				<input type="submit" value="글 올리기">
-					<input type="reset" value="다시 작성">
+				<input type="submit" value="Join">
+				<input type="reset" value="Reset">
 			</div>
 		</form>
 	</body>

@@ -1,5 +1,7 @@
 package com.mycompany.myapp.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,18 +26,20 @@ public class MemberController {
 	}
 	
 	@RequestMapping("member/join")
-	public String joinin(){
-		logger.info("joinForm()");
+	public String join(Member member){
+		logger.info("join()");
+		memberservice.join(member);
 		return "member/join";
 	}
 	
 	@RequestMapping("member/login")
-	public String login(String mid, String mpass){
+	public String login(String mid, String mpass, HttpSession session){
 		logger.info("login()");
 		/*Member member = memberservice.getMember(mid);*/
 		String state;
 		if(mid.equals("fall")){
 			if(mpass.equals("12345")){
+				session.setAttribute("memberID", mid);
 				state="success";
 			}else {
 				state="wrong_mpass";
