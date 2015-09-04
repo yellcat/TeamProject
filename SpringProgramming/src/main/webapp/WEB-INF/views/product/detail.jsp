@@ -30,17 +30,15 @@
 				flex:1;
 			}
 			#part1_2{
-				width:150px;
-				height:180px;
-				background-color:white;
+				width:120px;
 				text-align:center;
 				margin-right:10px;
 			}
 			#part1_2 img{
-				width:auto;
+				width:120px;
+				height:150px;
 				display:block;
-				margin-left: 10px;
-				padding:10px;
+				padding:10px 0px;
 			}
 			#part1_2 button{
 				background-color:rgb(89,94,113);
