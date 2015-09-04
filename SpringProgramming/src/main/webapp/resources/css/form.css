@@ -45,6 +45,12 @@
 				border: 3px solid #655143;	
 				border-radius: 10px;			
 			}
+						
+			#content1 #login iframe{
+				width: 100%;
+				height: 100%;
+				border: none;
+			}
 			
 			#content1 #frontImage {
 				flex: 1;
@@ -58,6 +64,7 @@
 				width: 665px;
 				height: 175px;
 			}
+
 
 			/*------------------------------------*/
 			#content2 #menu {
