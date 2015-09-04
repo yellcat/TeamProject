@@ -16,9 +16,9 @@
 			
 			<div id="content1">
 				<div id="login">
-					<iframe name="loginframe" height="100%" width="100%"></iframe>
 					<a class=loginbutton href="member/joinForm" target="loginframe">회원가입</a>
 					<a class=loginbutton href="member/loginForm" target="loginframe">로그인</a>
+					<iframe name="loginframe" height="100%" width="100%"></iframe>
 				</div>
 				<div id="frontImage">
 					<img src="resources/image/header.jpg"/>

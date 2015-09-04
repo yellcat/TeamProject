@@ -6,6 +6,6 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
-		
+		회원가입
 	</body>
 </html>
