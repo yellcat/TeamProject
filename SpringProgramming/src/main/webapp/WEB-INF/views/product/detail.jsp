@@ -30,13 +30,16 @@
 				flex:1;
 			}
 			#part1_2{
-				width:120px;
+				width:150px;
+				height:180px;
+				background-color:white;
 				text-align:center;
 				margin-right:10px;
 			}
 			#part1_2 img{
-				width:100%;
+				width:auto;
 				display:block;
+				margin-left: 10px;
 				padding:10px;
 			}
 			#part1_2 button{
@@ -85,12 +88,15 @@
 				<span class="content">${product.originalFilename}</span><br/>
 			</div>
 			<div id="part1_2">
-				<img alt="No image" src="${pageContext.request.contextPath}/resources/uploadfiles/${product.filesystemName}"/>
+				<img alt="No image" 
+					src="${pageContext.request.contextPath}/resources/uploadfiles/${product.filesystemName}" />
 				<button>다운로드</button>
 			</div>
 		</div>
 		<div id="buttonGroup">
-			<a href="#">수정하기</a>
+			<a href="list?pageNo=${pageNo }">목록</a>
+			<a href="updateForm?boardNo=${product.no}">수정</a>
+			<a href="delete?boardNo=${product.no}">삭제</a>
 		</div>
 	</body>
 </html>
