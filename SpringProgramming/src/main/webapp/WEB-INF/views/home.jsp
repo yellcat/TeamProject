@@ -15,7 +15,11 @@
 			</div>
 			
 			<div id="content1">
-				<div id="login"></div>
+				<div id="login">
+					<iframe name="loginframe" height="100%" width="100%"></iframe>
+					<a class=loginbutton href="member/joinForm" target="loginframe">회원가입</a>
+					<a class=loginbutton href="member/loginForm" target="loginframe">로그인</a>
+				</div>
 				<div id="frontImage">
 					<img src="resources/image/header.jpg"/>
 				</div>
@@ -24,18 +28,13 @@
 			<div id="content2">
 				<div id="menu">
 					<ul>
-						<h4>Chap07</h4>
-						<li><a href="#">1절. XXXXXX</a></li>
-						<li><a href="#">2절. XXXXXX</a></li>
-						<li><a href="#">3절. XXXXXX</a></li>
-					</ul>
-					
-					<ul>
-						<h4>스프링 게시판</h4>
-						<li><a href="board/list" target="iframe">일반 게시판</a></li>
-						<li><a href="photo/list" target="iframe">사진 게시판</a></li>
-						<li><a href="file/list" target="iframe">자료 게시판</a></li>
-						<li><a href="product/list" target="iframe">상품 게시판</a></li>
+						<h4>주문 시스템</h4>
+						<br/>
+						<li><a href="product/list" target="iframe">상품 목록</a></li>
+						<br/>
+						<li><a href="cart/list" target="iframe">장바구니</a></li>
+						<br/>
+						<li><a href="order/list" target="iframe">주문 내역</a></li>
 					</ul>
 				</div>
 				<div id="content">
