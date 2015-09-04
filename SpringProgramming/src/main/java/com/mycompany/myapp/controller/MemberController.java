@@ -22,9 +22,15 @@ public class MemberController {
 		return "member/joinForm";
 	}
 	
-	@RequestMapping("member/loginForm")
-	public String loginForm(){
-		logger.info("loginForm()");
-		return "member/loginForm";
+	@RequestMapping("member/join")
+	public String joinin(){
+		logger.info("joinForm()");
+		return "member/join";
+	}
+	
+	@RequestMapping("member/login")
+	public String login(){
+		logger.info("login()");
+		return "member/login";
 	}
 }

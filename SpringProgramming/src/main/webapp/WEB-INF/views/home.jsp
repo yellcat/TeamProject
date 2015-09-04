@@ -6,7 +6,38 @@
 		<title>Home</title>
 		<link rel="stylesheet" href="resources/css/form.css"/>
 	</head>
-	
+	<script src="/resources/js/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#login").click(function(){
+					var mid = $("#mid").val();
+					var mpass = $("#mpass").val();
+					$.ajax({
+						url:"ajax.jsp",
+						method:"POST",
+						data:{"mid":mid, "mpass":mpass},
+						success:function(data){
+							console.log(data);
+							var result = data.trim();
+							if(result == "success"){
+								$("#in").hide();
+								$("#out").show();
+								$("#loginMid").html(mid);
+							}else if(result=="fail_mid"){
+								alert("Non id");
+							}else if(result=="fail_mpass"){
+								alert("Non password");
+							}
+						}
+					});
+				});
+				$("#logout").click(function(){
+					$("#in").show();
+					$("#out").hide();
+					$("loginMid").html("xxx");
+				});
+			});
+		</script>
 	<body>
 	<div id="pagewrapper">
 		<div id="page">
@@ -15,10 +46,26 @@
 			</div>
 			
 			<div id="content1">
-				<div id="login">
-					<a class=loginbutton href="member/joinForm" target="loginframe">회원가입</a>
-					<a class=loginbutton href="member/loginForm" target="loginframe">로그인</a>
-					<iframe name="loginframe" height="100%" width="100%"></iframe>
+				<div id="loginForm">
+					<div id="log"
+						style="width: 200px; height: 100px; border: 1px solid black">
+						<div id="in">
+							<input id="mid" type="text" name="mid" /><br /> <input id="mpass"
+								type="password" name="mpass" /><br /> <input id="login"
+								type="button" value="login" /> <input id="join" type="button"
+								value="join" />
+						</div>
+						<div id="out" style="height: 100%">
+							<table>
+								<tr>
+									<td style="text-align: center; vertical-align: middle;"><span
+										id="loginMid">xxx</span>님. 로그인 됨<br /> <input id="logout"
+										type="button" value="logout" />
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
 				</div>
 				<div id="frontImage">
 					<img src="resources/image/header.jpg"/>
