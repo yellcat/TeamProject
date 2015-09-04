@@ -22,7 +22,7 @@ public class ProductDao {
 	private JdbcTemplate jdbcTemplate;
 	public Integer insert(Product product){
 		Integer pk = null;	
-		String sql = "insert into ExProducts "
+		String sql = "insert into products "
 				+ "(product_name, product_price, product_original_file_name, product_filesystem_name, product_content_type) "
 				+ "values (?, ?, ?, ?, ?)";
 		KeyHolder keyHolder = new GeneratedKeyHolder();
@@ -47,7 +47,7 @@ public class ProductDao {
 	public List<Product> selectByPage(int rownum, int rowPerPage){
 		String sql = ""
 				+ "select product_no, product_name, product_price "
-				+ "from ExProducts order by product_no desc "
+				+ "from products order by product_no desc "
 				+ "limit ?,?";
 		
 		List<Product> list = jdbcTemplate.query(
@@ -69,7 +69,7 @@ public class ProductDao {
 	}
 	
 	public Product selectByPk(int productNo){
-		String sql = "select * from ExProducts where product_no = ?";
+		String sql = "select * from products where product_no = ?";
 		Product product = jdbcTemplate.queryForObject(
 				sql, 
 				new Object[]{productNo},
@@ -95,20 +95,20 @@ public class ProductDao {
 	
 	public int update(Product product){
 		String sql = 
-				"update ExProducts set product_name = ?, product_price = ? where product_no = ?";
+				"update products set product_name = ?, product_price = ? where product_no = ?";
 		int rows = jdbcTemplate.update(sql, product.getNo(), product.getName(), product.getPrice());
 		return rows; 
 	}
 	
 	public int delete(int productNo){
-		String sql = "delete from ExProducts where product_no = ?";
+		String sql = "delete from products where product_no = ?";
 		
 		int rows = jdbcTemplate.update(sql, productNo);
 		return rows;
 	}
 	
 	public int selectCount(){
-		String sql = "select count(*) from ExProducts";
+		String sql = "select count(*) from products";
 		int rows = jdbcTemplate.queryForObject(sql, Integer.class);
 		return rows;
 	}
