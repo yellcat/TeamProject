@@ -4,16 +4,16 @@
 <html>
 	<head>
 		<title>Home</title>
+		<script src="${pageContext.request.contextPath}/resources/js/jquery-1.11.3.min.js"></script>
 		<link rel="stylesheet" href="resources/css/form.css"/>
 	</head>
-	<script src="/resources/js/jquery-1.11.3.min.js"></script>
 		<script type="text/javascript">
 			$(function(){
 				$("#login").click(function(){
 					var mid = $("#mid").val();
 					var mpass = $("#mpass").val();
 					$.ajax({
-						url:"ajax.jsp",
+						url:"member/login",
 						method:"POST",
 						data:{"mid":mid, "mpass":mpass},
 						success:function(data){
@@ -36,6 +36,9 @@
 					$("#out").hide();
 					$("loginMid").html("xxx");
 				});
+				$("#join").click(function(){
+					$("#")
+				})
 			});
 		</script>
 	<body>
@@ -50,10 +53,10 @@
 					<div id="log"
 						style="width: 200px; height: 100px; border: 1px solid black">
 						<div id="in">
-							<input id="mid" type="text" name="mid" /><br /> <input id="mpass"
-								type="password" name="mpass" /><br /> <input id="login"
-								type="button" value="login" /> <input id="join" type="button"
-								value="join" />
+							<input id="mid" type="text" name="mid" /><br />
+							<input id="mpass" type="password" name="mpass" /><br />
+							<input id="login" type="button" value="login" /> 
+							<input id="join" type="button" value="join" />
 						</div>
 						<div id="out" style="height: 100%">
 							<table>
@@ -76,6 +79,8 @@
 				<div id="menu">
 					<ul>
 						<h4>주문 시스템</h4>
+						<br/>
+						<li><a href="member/joinForm" target="iframe">회원가입(임시)</a></li>
 						<br/>
 						<li><a href="product/list" target="iframe">상품 목록</a></li>
 						<br/>

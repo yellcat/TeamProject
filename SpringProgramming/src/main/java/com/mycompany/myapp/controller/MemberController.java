@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.mycompany.myapp.dto.Member;
 import com.mycompany.myapp.service.MemberService;
 
 @Controller
@@ -29,8 +30,20 @@ public class MemberController {
 	}
 	
 	@RequestMapping("member/login")
-	public String login(){
+	public String login(String mid, String mpass){
 		logger.info("login()");
-		return "member/login";
+		/*Member member = memberservice.getMember(mid);*/
+		String state;
+		if(mid.equals("fall")){
+			if(mpass.equals("12345")){
+				state="success";
+			}else {
+				state="wrong_mpass";
+			}
+		}else {
+			state="wrong_mid";
+		}
+		
+		return "home?result="+state;
 	}
 }

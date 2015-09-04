@@ -19,17 +19,17 @@ public class MemberDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	public Integer insert(Member member) {
-		Integer pk = null;
-		String sql = "" + "insert into members "
+	public void insert(Member member) {
+		String sql = ""
+				+ "insert into members "
 				+ "(member_id, member_pw, member_name, member_mobile, member_address) "
 				+ "values(?, ?, ?, ?, ?)";
-		KeyHolder keyHolder = new GeneratedKeyHolder();
+		
 		jdbcTemplate.update(new PreparedStatementCreator() {
 
 			@Override
 			public PreparedStatement createPreparedStatement(Connection conn) throws SQLException  {
-				PreparedStatement pstmt = conn.prepareStatement(sql, new String[] { "member_no" });
+				PreparedStatement pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, member.getId());
 				pstmt.setString(2, member.getPw());
 				pstmt.setString(3, member.getName());
@@ -37,10 +37,7 @@ public class MemberDao {
 				pstmt.setString(5, member.getAddress());
 				return pstmt;
 			}
-		}, keyHolder);
-		Number keyNumber = keyHolder.getKey();
-		pk = keyNumber.intValue();
-		return pk;
+		});
 	}
 
 /*	public List<Member> selectByPage(int pageNo, int rowsPerPage)  {
