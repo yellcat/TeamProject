@@ -10,6 +10,10 @@
 		*{
 			color:white;
 		}
+			h4{
+				text-align: center;
+				color: #
+			}
 			span{
 				display: inline-block;
 				margin:10px;
@@ -22,26 +26,17 @@
 				text-align: center;
 			}
 			#part1{
-				display: flex;
+				
 				margin:20px;
 				/* width:550px;  */
 			}
-			#part1_1{
-				flex:1;
-			}
-			#part1_2{
-				width:120px;
-				text-align:center;
-				margin-right:10px;
-			}
+			
+		
 			#part1_2 img{
-				width:120px;
-				height:150px;
+				width: 500px;
+				height: 500px;
 				display:block;
-				padding:10px 0px;
-			}
-			#part1_2 button{
-				background-color:rgb(89,94,113);
+				margin:auto;
 			}
 			#part2{
 				margin:20px;
@@ -72,7 +67,7 @@
 	</head>
 	
 	<body>		
-		<h4>게시물 보기</h4>
+		<h4>[${product.name}] 상세 정보</h4>
 		<div id="part1">
 			<div id="part1_1">
 				<span class="title">품번: </span>
@@ -81,20 +76,17 @@
 				<span class="content">${product.name}</span><br/>
 				<span class="title">가격: </span>
 				<span class="content">${product.price}</span><br/>
-				
-				<span class="title">첨부파일: </span>
-				<span class="content">${product.originalFilename}</span><br/>
+				<hr/>
 			</div>
 			<div id="part1_2">
 				<img alt="No image" 
 					src="${pageContext.request.contextPath}/resources/uploadfiles/${product.filesystemName}" />
-				<button>다운로드</button>
 			</div>
 		</div>
 		<div id="buttonGroup">
+			<a href="cart?pageNo=${pageNo }">장바구니</a>
 			<a href="list?pageNo=${pageNo }">목록</a>
-			<a href="updateForm?boardNo=${product.no}">수정</a>
-			<a href="delete?boardNo=${product.no}">삭제</a>
+			
 		</div>
 	</body>
 </html>
