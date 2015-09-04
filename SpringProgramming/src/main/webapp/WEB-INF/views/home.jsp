@@ -13,7 +13,7 @@
 					var mid = $("#mid").val();
 					var mpass = $("#mpass").val();
 					$.ajax({
-						url:"/member/login",
+						url:"ajax.jsp",
 						method:"POST",
 						data:{"mid":mid, "mpass":mpass},
 						success:function(data){
