@@ -24,6 +24,27 @@
 				height: 100px;
 				font-size: 12px;
 			}
+			#buttonGroup {
+				margin: 10px;
+				text-align: center;
+			}
+			
+			#buttonGroup a {
+				display:inline-block;
+				width: 70px;
+				line-height: 30px;
+				text-decoration: none;
+				font-size: small;
+				color: white;
+				border: 1px solid darkgray;
+				background-color: rgb(89,94,113);
+				font-weight: bold;
+			}
+			
+			#buttonGroup a:hover {
+				color: black;
+				background-color: lightgray;
+			}
 		</style>
 		
 		<script type="text/javascript">
@@ -68,8 +89,8 @@
 			
 		</form>
 		<div id="buttonGroup">
-			<a href="javascript:sendData()">[수정]</a>
-			<a href="detail?productNo=${product.no}">[취소]</a>
+	
+			<a href="detail?productNo=${product.no}">취소</a>
 		</div>
 	</body>
 </html>
