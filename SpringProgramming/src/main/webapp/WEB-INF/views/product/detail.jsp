@@ -12,7 +12,7 @@
 		}
 			h4{
 				text-align: center;
-				color: #
+				
 			}
 			span{
 				display: inline-block;
@@ -84,7 +84,7 @@
 			</div>
 		</div>
 		<div id="buttonGroup">
-			<a href="cart?pageNo=${pageNo }">장바구니</a>
+			<a href="cartadd?productNo=${productNo }">장바구니</a>
 			<a href="list?pageNo=${pageNo }">목록</a>
 			
 		</div>
