@@ -34,7 +34,6 @@ public class CartDao {
 				pstmt.setInt(3, cart.getCartAmount());
 				return pstmt;
 			}
-			
 		}, keyHolder);
 		
 		pk = keyHolder.getKey().intValue();
