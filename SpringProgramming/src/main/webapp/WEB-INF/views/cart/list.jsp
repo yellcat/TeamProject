@@ -44,13 +44,13 @@
 		<table>
 			<tr>
 				<th>품명</th>
-				<th style="width:80px">가격</th>
-				<th style="width:80px">개수</th>
+				<th style="width:100px">가격</th>
+				<th style="width:100px">개수</th>
 			</tr>
 			
 			<c:forEach var="cart" items="${list}">
 				<tr>
-					<td><a href="/product/detail?productNo=${cart.productNo}">${cart.name}</a></td>
+					<td><a href="../product/detail?productNo=${cart.productNo}">${cart.name}</a></td>
 					<td>${cart.price}</td>
 					<td>${cart.amount}</td>
 				</tr>
