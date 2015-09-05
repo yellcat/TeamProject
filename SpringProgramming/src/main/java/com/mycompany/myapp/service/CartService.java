@@ -32,17 +32,13 @@ public class CartService {
 	
 	public List<Cart> getCart(String memberId) {
 		List<Cart> clist = cdao.selectById(memberId);
-		System.out.println("getCart()");
 		List<Cart> list = new ArrayList<Cart>();
-		System.out.println("CartList");
+
 		for(Cart cart : clist){
-			System.out.println("for문");
 			Product product = pdao.selectByPk(cart.getProductNo());
 			cart.setName(product.getName());
 			cart.setPrice(product.getPrice());
-			System.out.println("for문2");
 			list.add(cart);
-			System.out.println("for문2");
 		}
 		return list;
 	}
