@@ -24,11 +24,14 @@ public class CartController {
 	@RequestMapping("/cart/list")
 	public String list(HttpSession session, Model model) {
 		logger.info("list()");
-		String memberId = "aaaa";
-		
+		String memberId = (String)session.getAttribute("memberId");
+		logger.info(memberId);
 		List<Cart> list = cartservice.getCart(memberId);	
+		int AllPrice = cartservice.getAllPrice(list);
+		
 		model.addAttribute("list", list);
-		System.out.println(list.get(0).getProductNo());
+		model.addAttribute("AllPrice", AllPrice);
+		
 		return "cart/list";
 	}
 	

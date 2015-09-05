@@ -43,4 +43,14 @@ public class CartService {
 		}
 		return list;
 	}
+	
+	public int getAllPrice(List<Cart> list){
+		int AllPrice=0;
+		
+		for(Cart cart : list){
+			AllPrice+=cart.getAmount()*cart.getPrice();
+		}
+		
+		return AllPrice;
+	}
 }

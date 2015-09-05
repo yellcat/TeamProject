@@ -26,7 +26,7 @@ public class MemberService {
 		Member member = getMember(memberId);
 		if(member!=null){
 			if(memberPw.equals(member.getPw())){
-				session.setAttribute("memberID", memberId);
+				session.setAttribute("memberId", memberId);
 				state="success";
 			}else {
 				state="wrong_mpass";
