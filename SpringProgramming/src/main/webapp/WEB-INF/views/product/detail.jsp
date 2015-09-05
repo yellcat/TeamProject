@@ -113,7 +113,7 @@
 
          <form id="tocart" name="tocart" method="post" action="../cart/add">
             <div id="amounttocart">
-            한번에 10개까지 주문가능:
+          		  한번에 10개까지 주문가능:
             <input type="number" name="amount" min="1" max="10" style="color:black; text-align:center;"></div>
             <input type="hidden" name="productno" value="${product.no}" /><br>
          </form>
