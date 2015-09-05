@@ -4,10 +4,50 @@
 	<head>
 		<meta charset=UTF-8">
 		<title>Insert title here</title>
+		<style>
+			#joinForm {
+				color: white;
+			}
+			
+			#buttonGroup {
+				color: #gray;
+			}
+		</style>
 	</head>
 	<body>
 		<form method="post" action="join">
-			<div id=joinForm">
+			<fieldset id="joinForm">
+				<legend>회원가입</legend>
+				<table>
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+				
+			</fieldset>
+			
+			
+			
+			
+			
+			<div id="joinForm">
 				<span>ID</span>
 				<span><input type="text" name="id"></span><br/>
 				<span>Password</span>
@@ -19,10 +59,14 @@
 				<span>Address</span>
 				<span><input type="text" name="address"></span><br/>	
 			</div>
-			<div id=buttonGroup>
+			<div id="buttonGroup">
 				<input type="submit" value="Join">
 				<input type="reset" value="Reset">
 			</div>
+			
+			
+			
+			
 		</form>
 	</body>
 </html>
