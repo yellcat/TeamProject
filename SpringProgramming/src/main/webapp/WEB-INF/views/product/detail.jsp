@@ -6,122 +6,75 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
-		<style>
-		*{
-			color:white;
-		}
-			h4{
-				text-align: center;
-				
-			}
-			span{
-				display: inline-block;
-				margin:10px;
-			}
-			span.title{
-				border:1px solid darkgray;
-				background:rgb(89,94,113);
-				width:70px;
-				
-				text-align: center;
-			}
-			#part1{
-				
-				margin:20px;
-				/* width:550px;  */
-			}
-			
-		
-			#part1_2 img{
-				width: 500px;
-				height: 500px;
-				display:block;
-				margin:auto;
-			}
-			#part2{
-				margin:20px;
-			}
-			#buttonGroup {
-				margin: 10px;
-				text-align: center;
-			}
-			
-			#buttonGroup a {
-				display:inline-block;
-				width: 70px;
-				line-height: 30px;
-				text-decoration: none;
-				font-size: small;
+		<style type="text/css">
+			body {
 				color: white;
-				border: 1px solid darkgray;
+				text-decoration: none;
+			}
+			table {
+				width: 100%;
+				border-collapse: collapse;
+				font-size: small;
+			}
+			table, th, td {
+				border: 1px solid white;
+				text-align: center;
+			}
+			th {
 				background-color: rgb(89,94,113);
-				font-weight: bold;
 			}
 			
-			#buttonGroup a:hover {
-				color: black;
-				background-color: lightgray;
-			}
-			#amounttocart{
-				float:right;
+			a{
+				color: white;
+				text-decoration: none;
 			}
 			
-		</style>
+			#pager{
+				margin:10px;
+				font-size:small;
+				text-align:center;
+			}
 		
-		<script type="text/javascript">
-				function sendData(){
-					//값의 유효성 검사
-					//var modifyForm=document.querySelector("#modifyForm");
-					var tocart=document.tocart;
-					
-					
-					var amount=document.tocart.amount;
-				
-					
-					var productno=document.tocart.productno;
-					
-					if(amount.value==""||productno.value==""){
-						return;
-					}
-					//서버로 전송
-					tocart.submit();
-				}
-				
-				
-			</script>
+		</style>
 	</head>
 	
-	<body>		
-		<h4>[${product.name}] 상세 정보</h4>
-		<div id="part1">
-			<div id="part1_1">
-				<span class="title">품번: </span>
-				<span class="content">${product.no}</span><br/>
-				<span class="title">품명: </span>
-				<span class="content">${product.name}</span><br/>
-				<span class="title">가격: </span>
-				<span class="content">${product.price}</span><br/>
-				<hr/>
-			</div>
-			<div id="part1_2">
-				<img alt="No image" 
-					src="${pageContext.request.contextPath}/resources/uploadfiles/${product.filesystemName}" />
-			</div>
-		</div>
+	<body>
+		<h4>주문 번호 : [${order.no}] 번의 주문 상세 정보</h4>
 		
-		<div id="buttonGroup">
-
-			<form id="tocart" name="tocart" method="post" action="../cart/add">
-				<div id="amounttocart">
-				한번에 10개까지 주문가능:
-				<input type="number" name="amount" min="1" max="10" style="color:black; text-align:center;"></div>
-				<input type="hidden" name="productno" value="${product.no}" /><br>
-			</form>
-			<hr/>
-			<a href="javascript:sendData()">장바구니</a>
-
-			<a href="list?pageNo=${pageNo}">목록</a>
+		<table>
+			<tr>
+				<th style="width:50px">상품번호</th>
+				<th>상품명</th>
+				<th style="width:50px">수량</th>
+				<th style="width:80px">가격</th>
+				
+			</tr>
 			
-		</div>
+			<c:forEach var="orderproduct" items="${list}">
+				<tr>
+					<td>${product.no}</td>
+					<td><a href="product/detail?productNo=${product.no}">${product.name}</a></td>
+					<td>${cart.amount}</td>
+					<td>${product.price}</td>
+				</tr>
+			</c:forEach>
+		</table>
+		<div id="pager">
+	            <a href="list?pageNo=1">[처음]</a>
+	            <c:if test="${groupNo>1 }">
+	            <a href="list?pageNo=${startPageNo-pagesPerGroup}">[이전]</a><!-- 컨트롤러에서 만들어줘야할 변수 -->
+	            </c:if>
+	            
+	            <c:forEach var="i" begin="${startPageNo}" end="${endPageNo}">
+	               <a class='pageNo <c:if test="${pageNo==i}">selected</c:if>' href="list?pageNo=${i}">${i}</a>
+	            </c:forEach>
+	               
+	            <c:if test="${groupNo<totalGroupNo}">
+	            <a href="list?pageNo=${startPageNo+pagesPerGroup}">[다음]</a>
+	            </c:if>
+	            <a href="list?pageNo=${totalPageNo}">[맨끝]</a>
+	         </div>
+		
 	</body>
 </html>
+

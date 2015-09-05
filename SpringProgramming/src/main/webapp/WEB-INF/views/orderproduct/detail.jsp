@@ -47,6 +47,15 @@
 				<span class="content">${cart.amount}</span><br/>
 				<span class="title">가격: </span>
 				<span class="content">${product.price}</span><br/>
+				
+				<c:forEach var="orderproduct" items="${list}">
+				<tr>
+					<td>${product.no}</td>
+					<td><a href="product/detail?productNo=${product.no}">${product.name}</a></td>
+					<td>${cart.amount}</td>
+					<td>${product.price}</td>
+				</tr>
+			</c:forEach>
 				<hr/>
 			</div>
 
