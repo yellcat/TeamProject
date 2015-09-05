@@ -1,10 +1,17 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset=UTF-8">
 		<title>Insert title here</title>
 		<style>
+			@import url(http://fonts.googleapis.com/css?family=Orbitron);
+			
+			*	{
+			font:11px/2.8 orbitron; 
+			color:#888;
+			}
 			form {
 				margin: 60px 450px;
 				padding: 10px 10px;
@@ -19,7 +26,7 @@
 			}
 			
 			#buttonGroup {
-				color: #gray;
+				color: #black;
 				text-align: center;
 			}
 		</style>
@@ -27,7 +34,7 @@
 	<body>
 		<form method="post" action="join">
 			<fieldset id="joinForm">
-				<legend>회원가입</legend>
+				<legend>Sign up</legend>
 				<table>
 					<tr>
 						<td>ID</td>

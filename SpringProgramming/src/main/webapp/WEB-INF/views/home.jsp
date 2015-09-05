@@ -94,6 +94,7 @@
 		
 		<!-- footer -->
 		<footer>
+			<a id="SignUp" href="member/joinForm" target="iframe"/>Sign up</a>
 			<div id="loginForm">
 				<div id="in">
 					<table>
@@ -101,7 +102,7 @@
 							<td>  ID <input id="mid" type="text" name="mid"/>  PW <input id="mpass" type="password" name="mpass"/></td>
 						</tr>
 					</table>
-					<input id="login" type="button" value="login"/>  <input id="join" type="button" value="join"/>
+					<input id="login" type="button" value="login"/>  
 				</div>
 				<div id="out" style="height: 100%">
 					<table>
