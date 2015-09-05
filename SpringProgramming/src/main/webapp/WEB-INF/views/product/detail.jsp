@@ -62,12 +62,10 @@
 				color: black;
 				background-color: lightgray;
 			}
-			#amounttocart{
-				float:right;
-			}
+			
 			
 		</style>
-		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-1.11.3.min.js"></script>
+		
 		<script type="text/javascript">
 				function sendData(){
 					//값의 유효성 검사
@@ -87,21 +85,7 @@
 					tocart.submit();
 				}
 				
-				$(function() {
-					
-					$("#submit").click(function(){
-						var amount=$("#amount").val();
-						$.ajax({
-							url:"howmuch.jsp",
-							data:{
-								"amount":amount
-							},
-							success:function(data){
-								$("#resultamount").html(data);
-							}
-						});
-					});
-				});
+				
 			</script>
 	</head>
 	
@@ -122,15 +106,12 @@
 					src="${pageContext.request.contextPath}/resources/uploadfiles/${product.filesystemName}" />
 			</div>
 		</div>
-		<div id="amounttocart">
-				한번에 10개까지 주문가능:
-				<input type="number" name="amount" min="1" max="10" style="color:black; text-align:center;">
-				<input type="button" id="submit" value="선택" style="color:black; text-align:center;">
-				<div id="resultamount" style="width: 200px; height: 150px; border: 1px solid none"></div>
-		</div><br/>
+		
 		<div id="buttonGroup">
 
 			<form id="tocart" name="tocart" method="post" action="../cart/add">
+				한번에 10개까지 주문가능:
+				<input type="number" name="amount" min="1" max="10" style="color:black; text-align:center;">
 				<input type="hidden" name="productno" value="${product.no}" />
 			</form><hr/>
 			<a href="javascript:sendData()">장바구니</a>
