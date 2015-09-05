@@ -21,7 +21,7 @@ public class CartController {
 	@Autowired
 	private CartService cartservice;
 	
-	@RequestMapping("/cart/list")
+	@RequestMapping("cart/list")
 	public String list(HttpSession session, Model model) {
 		logger.info("list()");
 		String memberId = (String)session.getAttribute("memberId");
@@ -36,10 +36,10 @@ public class CartController {
 	}
 	
 	@RequestMapping("cart/add")
-	public String add(int productno, int amount) {
+	public String add(HttpSession session, int productno, int amount) {
 		logger.info("add()");
+		String memberId = (String)session.getAttribute("memberId");
 		
-		String memberId = "aaaa";
 		Cart cart = new Cart();
 		cart.setMemberId(memberId);
 		cart.setProductNo(productno);
@@ -47,6 +47,13 @@ public class CartController {
 		cartservice.insert(cart);
 		
 		return "redirect:/product/list";
+	}
+	
+	@RequestMapping("cart/order")
+	public String order(List<Cart> list, Model model) {
+		logger.info("order()");
+		model.addAttribute("list", list);
+		return "cart/order";
 	}
 	
 }
