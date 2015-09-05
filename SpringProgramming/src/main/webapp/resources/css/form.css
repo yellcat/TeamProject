@@ -63,7 +63,7 @@ header ul .fa { font-size:25px; color:#fff;}
 		position:fixed; 
 		z-index:3; 
 		top:50%; 
-		margin-top:-25px; 
+		margin-top:-270px; 
 		left:0px; 
 		background:url(../img/tr.png) repeat 0 0; 
 		}
@@ -91,8 +91,25 @@ nav>ul>li>div>ul>li>a { display:block; width:100%; height:37px; border-top:1px s
 nav>ul>li>div>ul>li>a:hover { background:#000; color:#fff;}
 
 /*section*/
-section { position:fixed; z-index:2; width:100%; height:500px; top:50%; margin-top:-250px; left:0px; overflow:hidden; opacity:1; }
-section>img { width:100%; height:auto; position:absolute; top:-150px; left:0px; }
+	section { 
+		position:fixed; 
+		z-index:2; 
+		width:100%; 
+		height:800px; 
+		top:50%; 
+		margin-top:-100px; 
+		left:0px; 
+		opacity:1; 
+		}
+	
+	#content {
+		height: 800px;
+		border: 1px solid none;
+	}
+
+	iframe {
+		border: none;
+	}
 
 /*footer*/
 	footer { 
