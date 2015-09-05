@@ -75,7 +75,6 @@
 					<a href="#">ACCOUNT</a>
 					<div>
 						<h2>ACCOUNT</h2>
-						<p><img src="img/thumb6.jpg" /></p>
 						<ul>
 							<li><a href="member/joinForm" target="iframe">회원가입(임시)</a></li>
 							<li><a href="cart/list" target="iframe">장바구니</a></li>
