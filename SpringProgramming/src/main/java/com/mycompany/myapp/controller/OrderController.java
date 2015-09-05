@@ -26,7 +26,9 @@ public class OrderController {
 	public String list(Model model, HttpSession session) {
 		logger.info("list()");	
 		
-		List<Order> list = orderservice.getOrderlist("member_id");
+		String memberId = (String)session.getAttribute("memberId");
+		
+		List<Order> list = orderservice.getOrderlist(memberId);
 		model.addAttribute("list", list);
 		
 		return "order/list";
