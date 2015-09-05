@@ -2,18 +2,19 @@ package com.mycompany.myapp.dto;
 
 public class Cart {
 
+	private int cartNo;
 	private String memberId;
 	private int productNo;
+	private int cartAmount;
 	private String productName;
+	
 	public String getProductName() {
 		return productName;
 	}
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
-	private int cartAmount;
-	private int cartNo;
-	
+
 	public String getMemberId() {
 		return memberId;
 	}
