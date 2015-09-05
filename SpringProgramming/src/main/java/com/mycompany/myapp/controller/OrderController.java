@@ -2,7 +2,6 @@ package com.mycompany.myapp.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -32,13 +31,5 @@ public class OrderController {
 		
 		return "order/list";
 	}
-	
-	@RequestMapping("order/detail")
-	public String detail(int orderNo, HttpServletRequest request) {
-		logger.info("detail()");
-		Order order = orderservice.getOrder(orderNo);
-		request.setAttribute("order", order);
-		return "order/detail";
-	}	
 	
 }
