@@ -64,7 +64,6 @@
 							<li><a href="product/list" target="iframe">Product list</a></li>
 							<li><a href="#">Coming soon...</a></li>
 							<li><a href="#">Coming soon...</a></li>
-							<li><a href="#">Coming soon...</a></li>
 						</ul>
 					</div>
 				</li>
@@ -76,10 +75,9 @@
 					<div>
 						<h2>ACCOUNT</h2>
 						<ul>
-							<li><a href="member/joinForm" target="iframe">회원가입(임시)</a></li>
-							<li><a href="cart/list" target="iframe">장바구니</a></li>
-							<li><a href="order/list" target="iframe">주문 내역</a></li>
-							<li><a href="#">Coming soon...</a></li>
+							<li><a href="member/joinForm" target="iframe">Sign up</a></li>
+							<li><a href="cart/list" target="iframe">Cart</a></li>
+							<li><a href="order/list" target="iframe">Order Record</a></li>
 						</ul>
 					</div>
 				</li>
@@ -109,7 +107,7 @@
 					<table>
 						<tr>
 							<td style="text-align: center; vertical-align: middle;">
-							<span id="loginMid">xxx</span> 님. 로그인 됨<br /> 
+							<span id="loginMid">xxx</span>님 환영합니다<br /> 
 							<input id="logout" type="button" value="logout" />
 							</td>
 						</tr>
