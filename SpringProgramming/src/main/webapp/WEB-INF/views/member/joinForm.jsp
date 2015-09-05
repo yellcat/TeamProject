@@ -5,12 +5,22 @@
 		<meta charset=UTF-8">
 		<title>Insert title here</title>
 		<style>
+			form {
+				margin: 60px 450px;
+				padding: 10px 10px;
+				display: inline-block;
+			}
+			
+			legend {
+				text-align: center;
+			}
 			#joinForm {
 				color: white;
 			}
 			
 			#buttonGroup {
 				color: #gray;
+				text-align: center;
 			}
 		</style>
 	</head>
@@ -20,53 +30,31 @@
 				<legend>회원가입</legend>
 				<table>
 					<tr>
-						<td></td>
-						<td></td>
+						<td>ID</td>
+						<td><input type="text" name="id"></td>
 					</tr>
 					<tr>
-						<td></td>
-						<td></td>
+						<td>Password</td>
+						<td><input type="text" name="pw"></td>
 					</tr>
 					<tr>
-						<td></td>
-						<td></td>
+						<td>Name</td>
+						<td><input type="text" name="name"></td>
 					</tr>
 					<tr>
-						<td></td>
-						<td></td>
+						<td>Mobile('-'제외)</td>
+						<td><input type="tel" name="tel"></td>
 					</tr>
 					<tr>
-						<td></td>
-						<td></td>
+						<td>Address</td>
+						<td><input type="text" name="address"></td>
 					</tr>
 				</table>
-				
+					<div id="buttonGroup">
+						<input type="submit" value="Join">
+						<input type="reset" value="Reset">
+					</div>	
 			</fieldset>
-			
-			
-			
-			
-			
-			<div id="joinForm">
-				<span>ID</span>
-				<span><input type="text" name="id"></span><br/>
-				<span>Password</span>
-				<span><input type="text" name="pw"></span><br/>
-				<span>Name</span>
-				<span><input type="text" name="name"></span><br/>
-				<span>Mobile</span>
-				<span><input type="tel" name="tel"></span><br/>
-				<span>Address</span>
-				<span><input type="text" name="address"></span><br/>	
-			</div>
-			<div id="buttonGroup">
-				<input type="submit" value="Join">
-				<input type="reset" value="Reset">
-			</div>
-			
-			
-			
-			
 		</form>
 	</body>
 </html>
