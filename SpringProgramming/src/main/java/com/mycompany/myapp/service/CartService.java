@@ -1,6 +1,5 @@
 package com.mycompany.myapp.service;
 
-import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +9,7 @@ import org.springframework.stereotype.Component;
 import com.mycompany.myapp.dao.CartDao;
 import com.mycompany.myapp.dao.ProductDao;
 import com.mycompany.myapp.dto.Cart;
+import com.mycompany.myapp.dto.Product;
 
 @Component
 public class CartService {
@@ -37,9 +37,12 @@ public class CartService {
 		System.out.println("CartList");
 		for(Cart cart : clist){
 			System.out.println("for문");
-			cart.setProductName(pdao.selectByPk(cart.getProductNo()).getName());
+			Product product = pdao.selectByPk(cart.getProductNo());
+			cart.setName(product.getName());
+			cart.setPrice(product.getPrice());
 			System.out.println("for문2");
 			list.add(cart);
+			System.out.println("for문2");
 		}
 		return list;
 	}

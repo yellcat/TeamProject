@@ -32,7 +32,7 @@ public class CartDao {
 				PreparedStatement pstmt = conn.prepareStatement(sql, new String[] {"cart_no"});				
 				pstmt.setString(1, cart.getMemberId());
 				pstmt.setInt(2, cart.getProductNo());
-				pstmt.setInt(3, cart.getCartAmount());
+				pstmt.setInt(3, cart.getAmount());
 				return pstmt;
 			}
 		}, keyHolder);
@@ -44,7 +44,7 @@ public class CartDao {
 	
 	public int update(Cart cart) {		
 		String sql = "update carts set cart_amount =? where member_id = ? and product_no = ?";
-		int rows = jdbcTemplate.update(sql, cart.getCartNo(), cart.getCartAmount(), cart.getMemberId(), cart.getProductNo());
+		int rows = jdbcTemplate.update(sql, cart.getNo(), cart.getAmount(), cart.getMemberId(), cart.getProductNo());
 		return rows;
 	}
 	
@@ -63,14 +63,15 @@ public class CartDao {
 			public Cart mapRow(ResultSet rs, int arg1) throws SQLException {
 				Cart cart= new Cart();
 				
-				cart.setCartNo(rs.getInt("cart_no"));
+				cart.setNo(rs.getInt("cart_no"));
 				cart.setMemberId(rs.getString("member_id"));
 				cart.setProductNo(rs.getInt("product_no"));
-				cart.setCartAmount(rs.getInt("cart_amount"));
+				cart.setAmount(rs.getInt("cart_amount"));
 				
 				return cart;				
-			}			
+			}
 		}
+		
 	);
 		return list;			
 	}

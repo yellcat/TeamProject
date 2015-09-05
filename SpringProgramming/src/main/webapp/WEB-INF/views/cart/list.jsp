@@ -43,20 +43,25 @@
 		
 		<table>
 			<tr>
-				<th style="width:50px">품번</th>
-				<th>품명</th>
-				<th style="width:80px">가격</th>
+				<th style="width:80px">카트번호</th>
+				<th>상품명</th>
+				<th style="width:80px">상품가격</th>
+				<th style="width:80px">상품개수</th>
 			</tr>
 			
 			<c:forEach var="product" items="${list}">
 				<tr>
-					<td>${product.no}</td>
-					<td><a href="detail?productNo=${product.no}">${product.name}</a></td>
-					<td>${product.price}</td>
+					<td>${cart.no}</td>
+					<td><a href="/product/detail?productNo=${product.no}">${cart.name}</a></td>
+					<td>${cart.price}</td>
+					<td>${cart.amount}</td>
 				</tr>
 			</c:forEach>
+			<tr>
+				<td colspan="4">총가격: ${cart.cartAmount*cart.price}</td>
+			</tr>
 		</table>
-		<div id="pager">
+		<%-- <div id="pager">
 	            <a href="list?pageNo=1">[처음]</a>
 	            <c:if test="${groupNo>1 }">
 	            <a href="list?pageNo=${startPageNo-pagesPerGroup}">[이전]</a><!-- 컨트롤러에서 만들어줘야할 변수 -->
@@ -70,7 +75,7 @@
 	            <a href="list?pageNo=${startPageNo+pagesPerGroup}">[다음]</a>
 	            </c:if>
 	            <a href="list?pageNo=${totalPageNo}">[맨끝]</a>
-	         </div>
+	         </div> --%>
 		
 	</body>
 </html>

@@ -25,7 +25,6 @@ public class CartController {
 		memberId="aaaa";
 		List<Cart> list = cartservice.getCart(memberId);	
 		model.addAttribute("list", list);
-
 		return "cart/list";
 	}
 	
@@ -35,7 +34,7 @@ public class CartController {
 		Cart cart = new Cart();
 		cart.setMemberId(memberId);
 		cart.setProductNo(productNo);
-		cart.setCartAmount(cartAmount);
+		cart.setAmount(cartAmount);
 		cartservice.insert(cart);
 
 		return "redirect:/product/list";

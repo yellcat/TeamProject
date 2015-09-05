@@ -2,19 +2,18 @@ package com.mycompany.myapp.dto;
 
 public class Cart {
 
-	private int cartNo;
+	private int no;
 	private String memberId;
 	private int productNo;
-	private int cartAmount;
-	private String productName;
-	
-	public String getProductName() {
-		return productName;
+	private int amount;
+	private String name;
+	private int price;
+	public int getNo() {
+		return no;
 	}
-	public void setProductName(String productName) {
-		this.productName = productName;
+	public void setNo(int no) {
+		this.no = no;
 	}
-
 	public String getMemberId() {
 		return memberId;
 	}
@@ -27,16 +26,22 @@ public class Cart {
 	public void setProductNo(int productNo) {
 		this.productNo = productNo;
 	}
-	public int getCartAmount() {
-		return cartAmount;
+	public int getAmount() {
+		return amount;
 	}
-	public void setCartAmount(int cartAmount) {
-		this.cartAmount = cartAmount;
+	public void setAmount(int amount) {
+		this.amount = amount;
 	}
-	public int getCartNo() {
-		return cartNo;
+	public String getName() {
+		return name;
 	}
-	public void setCartNo(int cartNo) {
-		this.cartNo = cartNo;
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
 	}
 }
