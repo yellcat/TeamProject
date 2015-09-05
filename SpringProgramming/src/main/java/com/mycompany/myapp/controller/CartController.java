@@ -22,16 +22,20 @@ public class CartController {
 	@RequestMapping("/cart/list")
 	public String list(String memberId, Model model) {
 		logger.info("list()");
+		memberId="aaaa";
 		List<Cart> list = cartservice.getCart(memberId);	
 		model.addAttribute("list", list);
 
 		return "cart/list";
 	}
 	
-	@RequestMapping("/cart/add")
-	public String add(Cart cart) {
-		
-		logger.info("list()");
+	@RequestMapping("cart/add")
+	public String add(String memberId, int productNo, int cartAmount) {
+		logger.info("add()");
+		Cart cart = new Cart();
+		cart.setMemberId(memberId);
+		cart.setProductNo(productNo);
+		cart.setCartAmount(cartAmount);
 		cartservice.insert(cart);
 
 		return "redirect:/product/list";

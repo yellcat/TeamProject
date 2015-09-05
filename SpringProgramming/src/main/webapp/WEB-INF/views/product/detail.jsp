@@ -84,8 +84,8 @@
 			</div>
 		</div>
 		<div id="buttonGroup">
-			<a href="cart/add?productNo=${productNo}">장바구니</a>
-			<a href="list?pageNo=${pageNo }">목록</a>
+			<a href="/cart/add?productNo=${product.no}">장바구니</a>
+			<a href="list?pageNo=${pageNo}">목록</a>
 			
 		</div>
 	</body>

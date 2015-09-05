@@ -54,7 +54,7 @@ public class CartDao {
 		return rows;
 	}
 	
-	public List <Cart> selectById (String memberId) {		
+	public List<Cart> selectById (String memberId) {		
 		String sql = "select * from carts where member_id = ?";
 		
 		List<Cart> list = jdbcTemplate.query(sql, new Object[]{memberId}, new RowMapper<Cart>(){
@@ -63,10 +63,10 @@ public class CartDao {
 			public Cart mapRow(ResultSet rs, int arg1) throws SQLException {
 				Cart cart= new Cart();
 				
+				cart.setCartNo(rs.getInt("cart_no"));
 				cart.setMemberId(rs.getString("member_id"));
 				cart.setProductNo(rs.getInt("product_no"));
 				cart.setCartAmount(rs.getInt("cart_amount"));
-				cart.setCartNo(rs.getInt("cart_no"));
 				
 				return cart;				
 			}			

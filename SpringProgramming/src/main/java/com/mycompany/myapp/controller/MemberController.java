@@ -5,7 +5,9 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mycompany.myapp.dto.Member;
@@ -33,7 +35,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping("member/login")
-	public String login(String mid, String mpass, HttpSession session){
+	public String login(String mid, String mpass, HttpSession session, Model model){
 		logger.info("login()");
 		/*Member member = memberservice.getMember(mid);*/
 		String state;
@@ -48,6 +50,9 @@ public class MemberController {
 			state="wrong_mid";
 		}
 		
-		return "home?result="+state;
+		model.addAttribute("result", state);
+		
+		return "member/result";
 	}
+	
 }

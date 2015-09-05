@@ -1,5 +1,6 @@
 package com.mycompany.myapp.service;
 
+import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,10 +32,13 @@ public class CartService {
 	
 	public List<Cart> getCart(String memberId) {
 		List<Cart> clist = cdao.selectById(memberId);
+		System.out.println("getCart()");
 		List<Cart> list = new ArrayList<Cart>();
-		
+		System.out.println("CartList");
 		for(Cart cart : clist){
+			System.out.println("for문");
 			cart.setProductName(pdao.selectByPk(cart.getProductNo()).getName());
+			System.out.println("for문2");
 			list.add(cart);
 		}
 		return list;
