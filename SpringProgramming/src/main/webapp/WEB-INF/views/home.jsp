@@ -4,10 +4,10 @@
 <!DOCTYPE html >
 <html>
 	<head>
-		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />	
 		<title> TEAM5  </title>
 		<script src="${pageContext.request.contextPath}/resources/js/jquery-1.11.3.min.js"></script>
 		<link rel="stylesheet" href="resources/css/form.css"/>
+	</head>
 		<script type="text/javascript">
 				$(function(){
 					$("#login").click(function(){
@@ -42,7 +42,6 @@
 					})
 				});
 		</script>
-	</head>
 	<body>
 
 	<!-- 배경이미지 -->
@@ -149,8 +148,11 @@
 	
 	<!-- 이미지 시퀀스 프레임 -->
 	<section>
-		<img src="img/pic50.jpg" />	
+		<div id="content">
+			<iframe name="iframe" height="100%" width="100%"></iframe>
+		</div>
 	</section>
+	
 	
 	<!-- footer -->
 	<footer>
