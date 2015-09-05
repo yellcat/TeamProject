@@ -25,7 +25,7 @@ public class OrderController {
 	
 	@RequestMapping("order/list")
 	public String list(Model model, HttpSession session) {
-		logger.info("list()");
+		logger.info("list()");	
 		
 		List<Order> list = orderservice.getOrderlist("member_id");
 		model.addAttribute("list", list);

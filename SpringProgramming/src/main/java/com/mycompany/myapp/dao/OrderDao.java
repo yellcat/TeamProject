@@ -15,6 +15,7 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
 import com.mycompany.myapp.dto.Order;
+import com.mycompany.myapp.dto.Product;
 
 @Component
 public class OrderDao {
@@ -85,7 +86,8 @@ public class OrderDao {
 			    		 }			    		 
 			    	);
 			     	return list;
-			    }
+			    }		
+			
 }
 			    		 
 			   
