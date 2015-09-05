@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset=UTF-8">
+		<meta charset="UTF-8">
 		<title>Insert title here</title>
 		<style>
 		*{
@@ -67,7 +67,7 @@
 			}
 			
 		</style>
-		<script src="${pageContext.request.contextPath}/resources/js/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-1.11.3.min.js"></script>
 		<script type="text/javascript">
 				function sendData(){
 					//값의 유효성 검사
@@ -130,15 +130,12 @@
 				<div id="resultamount" style="width: 200px; height: 150px; border: 1px solid none"></div>
 		</div><br/>
 		<div id="buttonGroup">
-<<<<<<< HEAD
+
 			<form id="tocart" name="tocart" method="post" action="../cart/add">
-				
 				<input type="hidden" name="productno" value="${product.no}" />
 			</form><hr/>
 			<a href="javascript:sendData()">장바구니</a>
-=======
-			<a href="/cart/add?productNo=${product.no}">장바구니</a>
->>>>>>> branch 'master' of https://github.com/yellcat/TeamProject.git
+
 			<a href="list?pageNo=${pageNo}">목록</a>
 			
 		</div>
