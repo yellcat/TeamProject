@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; %>
+<%@ page contentType="text/html; charset=UTF-8"%>
 
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta charset="UTF-8">
 		<title>Order List</title>
 		<style type="text/css">
 			body {
@@ -42,9 +42,9 @@
 		
 		<table>
 			<tr>
-				<th style="width:50px">주문일시</th>
+				<th style="width:90px">주문일시</th>
 				<th>주문번호</th>
-				<th style="width:80px">주문총액</th>
+				<th style="width:90px">주문총액</th>
 			</tr>
 			
 			<c:forEach var="order" items="${list}">
