@@ -43,16 +43,18 @@
 		
 		<table>
 			<tr>
-				<th style="width:90px">주문일시</th>
+				<th style="width:100px">주문일시</th>
 				<th>주문번호</th>
 				<th style="width:90px">주문총액</th>
+				<th style="width:90px">결제방법</th>
 			</tr>
 			
 			<c:forEach var="order" items="${list}">
 				<tr>
 					<td>${order.date}</td>
-					<td><a href="detail?orderNo=${order.no}">${order.no}</a></td>
+					<td><a href="orderproduct/detail?orderNo=${order.no}">${order.no}</a></td>
 					<td>${order.price}</td>
+					<td>${order.payment}</td>
 				</tr>
 			</c:forEach>
 		</table>
