@@ -25,7 +25,8 @@ public class OrderService {
 	
 	public List<Order> getOrderlist(String member_id) {
 		List<Order> list = odao.selectById(member_id);
-		return list;
+		return list;		
+		
 	}
 	
 }
