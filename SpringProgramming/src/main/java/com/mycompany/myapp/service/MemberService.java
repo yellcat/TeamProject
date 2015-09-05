@@ -1,5 +1,7 @@
 package com.mycompany.myapp.service;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,6 +19,22 @@ public class MemberService {
 	public Member getMember(String memberId){
 		Member member = mdao.selectById(memberId);
 		return member;
+	}
+	
+	public String loginCheck(String memberId, String memberPw, HttpSession session){
+		String state;
+		Member member = getMember(memberId);
+		if(member!=null){
+			if(memberPw.equals(member.getPw())){
+				session.setAttribute("memberID", memberId);
+				state="success";
+			}else {
+				state="wrong_mpass";
+			}
+		}else {
+			state="wrong_mid";
+		}
+		return state;
 	}
 	
 	public void delete(String memberId){

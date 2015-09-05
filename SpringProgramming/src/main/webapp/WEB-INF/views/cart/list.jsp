@@ -52,13 +52,13 @@
 			<c:forEach var="product" items="${list}">
 				<tr>
 					<td>${cart.no}</td>
-					<td><a href="/product/detail?productNo=${product.no}">${cart.name}</a></td>
+					<td><a href="/product/detail?productNo=${cart.productNo}">${cart.name}</a></td>
 					<td>${cart.price}</td>
 					<td>${cart.amount}</td>
 				</tr>
 			</c:forEach>
 			<tr>
-				<td colspan="4">총가격: ${cart.cartAmount*cart.price}</td>
+				<td colspan="4">총가격: ${cart.amount*cart.price}</td>
 			</tr>
 		</table>
 		<%-- <div id="pager">

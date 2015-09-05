@@ -38,19 +38,9 @@ public class MemberController {
 	public String login(String mid, String mpass, HttpSession session, Model model){
 		logger.info("login()");
 		/*Member member = memberservice.getMember(mid);*/
-		String state;
-		if(mid.equals("fall")){
-			if(mpass.equals("12345")){
-				session.setAttribute("memberID", mid);
-				state="success";
-			}else {
-				state="wrong_mpass";
-			}
-		}else {
-			state="wrong_mid";
-		}
 		
-		model.addAttribute("result", state);
+		String result = memberservice.loginCheck(mid, mpass, session);
+		model.addAttribute("result", result);
 		
 		return "member/result";
 	}

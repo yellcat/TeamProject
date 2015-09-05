@@ -23,9 +23,9 @@
 								$("#in").hide();
 								$("#out").show();
 								$("#loginMid").html(mid);
-							}else if(result=="fail_mid"){
+							}else if(result=="wrong_mid"){
 								alert("Non id");
-							}else if(result=="fail_mpass"){
+							}else if(result=="wrong_mpass"){
 								alert("Non password");
 							}
 						}
@@ -37,7 +37,7 @@
 					$("loginMid").html("xxx");
 				});
 				$("#join").click(function(){
-					$("#")
+					
 				})
 			});
 		</script>

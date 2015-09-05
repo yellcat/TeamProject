@@ -36,7 +36,7 @@ public class CartController {
 		cart.setProductNo(productNo);
 		cart.setAmount(cartAmount);
 		cartservice.insert(cart);
-
+		
 		return "redirect:/product/list";
 	}
 	

@@ -64,7 +64,7 @@ public class MemberDao {
 	
 	public Member selectById(String memberId)  {
 		
-		String sql = "select * from members where member_no = ?";
+		String sql = "select * from members where member_id = ?";
 		Member member = jdbcTemplate.queryForObject(
 				sql,
 				new Object[]{memberId},
