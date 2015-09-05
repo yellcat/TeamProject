@@ -43,15 +43,13 @@
 		
 		<table>
 			<tr>
-				<th style="width:80px">카트번호</th>
-				<th>상품명</th>
-				<th style="width:80px">상품가격</th>
-				<th style="width:80px">상품개수</th>
+				<th>품명</th>
+				<th style="width:80px">가격</th>
+				<th style="width:80px">개수</th>
 			</tr>
 			
-			<c:forEach var="product" items="${list}">
+			<c:forEach var="cart" items="${list}">
 				<tr>
-					<td>${cart.no}</td>
 					<td><a href="/product/detail?productNo=${cart.productNo}">${cart.name}</a></td>
 					<td>${cart.price}</td>
 					<td>${cart.amount}</td>

@@ -32,6 +32,7 @@ public class CartService {
 	
 	public List<Cart> getCart(String memberId) {
 		List<Cart> clist = cdao.selectById(memberId);
+
 		List<Cart> list = new ArrayList<Cart>();
 
 		for(Cart cart : clist){

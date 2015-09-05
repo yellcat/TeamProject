@@ -24,21 +24,19 @@ public class CartController {
 	@RequestMapping("/cart/list")
 	public String list(HttpSession session, Model model) {
 		logger.info("list()");
-		String memberId = session.getId();
-		logger.info(memberId);
+		String memberId = "aaaa";
 		
 		List<Cart> list = cartservice.getCart(memberId);	
 		model.addAttribute("list", list);
+		System.out.println(list.get(0).getProductNo());
 		return "cart/list";
 	}
 	
 	@RequestMapping("cart/add")
-	public String add(String memberId, int productno, int amount) {
+	public String add(int productno, int amount) {
 		logger.info("add()");
 		
-		logger.info(String.valueOf(productno));
-		logger.info(String.valueOf(amount));
-		
+		String memberId = "aaaa";
 		Cart cart = new Cart();
 		cart.setMemberId(memberId);
 		cart.setProductNo(productno);
