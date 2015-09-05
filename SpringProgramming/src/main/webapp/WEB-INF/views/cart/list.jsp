@@ -56,7 +56,7 @@
 				</tr>
 			</c:forEach>
 			<tr>
-				<td colspan="4">총가격: ${cart.amount*cart.price}</td>
+				<td colspan="4">총가격: ${AllPrice}</td>
 			</tr>
 		</table>
 		<%-- <div id="pager">
