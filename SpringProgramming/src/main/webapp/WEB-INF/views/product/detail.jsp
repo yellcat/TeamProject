@@ -93,7 +93,6 @@
 						var amount=$("#amount").val();
 						$.ajax({
 							url:"howmuch.jsp",
-							method:"POST",
 							data:{
 								"amount":amount
 							},
