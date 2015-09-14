@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -18,7 +19,7 @@
 					
 					var order=document.order;
 					var AllPrice=document.order.AllPrice;
-					var payment=document.order.payment;
+					var Payment=document.order.Payment;
 					
 					if(payment.value==""){
 						alret("결제 방식을 선택해주세요");
@@ -31,19 +32,34 @@
 		<br/><br/><br/><br/><br/>
 		<form action="order">
 		<div id="orderForm">
-				<span class="title">총 가격</span>
-				<span>${AllPrice}</span><br/>
-				
-				<span class="title">결제방식</span>
-				<span>
-					<select>
+		<table>
+			<tr>
+				<th>품명</th>
+				<th style="width:100px">가격</th>
+				<th style="width:100px">개수</th>
+			</tr>
+			
+			<c:forEach var="cart" items="${list}">
+				<tr>
+					<td><a href="../product/detail?productNo=${cart.productNo}">${cart.name}</a></td>
+					<td>${cart.price}</td>
+					<td>${cart.amount}</td>
+				</tr>
+			</c:forEach>
+			<tr>
+				<td>총가격: ${AllPrice}</td>
+				<td>결제방식</td>
+				<td class="title">
+					<select name="Payment">
 						<option value="카드">카드</option>
 						<option value="계좌이체">계좌이체</option>
 						<option value="상품권">상품권</option>
 						<option value="모바일 간편결제">모바일 간편결제</option>
 					</select>
-				</span>
-			</div><br/>
+				</td>
+			</tr>
+		</table>
+		</div>
 		</form>
 		
 		<a href="javascript:sendData()">결제</a>

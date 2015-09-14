@@ -50,16 +50,21 @@ public class CartController {
 	}
 	
 	@RequestMapping("cart/orderForm")
-	public String orderForm(int AllPrice, Model model) {
+	public String orderForm(HttpSession session, int AllPrice, Model model) {
 		logger.info("orderForm()");
-		/*model.addAttribute("list", list);*/
+		String memberId = (String)session.getAttribute("memberId");
+		List<Cart> list = cartservice.getCart(memberId);
+		model.addAttribute("list", list);
 		model.addAttribute("AllPrice", AllPrice);
 		return "cart/orderForm";
 	}
 	
 	@RequestMapping("cart/order")
-	public String order(int AllPrice, String Payment, Model model) {
+	public String order(HttpSession session, int AllPrice, String Payment, Model model) {
 		logger.info("order()");
+		String memberId = (String)session.getAttribute("memberId");
+		
+		cartservice.order(memberId, AllPrice, Payment);
 		
 		return "redirect:list";
 	}
