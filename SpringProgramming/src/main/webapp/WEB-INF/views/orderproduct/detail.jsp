@@ -6,51 +6,74 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
-		<style>
-		*{
-			color:white;
-		}
-			h4{
-				text-align: center;
-				
+		<style type="text/css">
+			body {
+				color: white;
+				text-decoration: none;
 			}
-			span{
-				display: inline-block;
-				margin:10px;
+			table {
+				width: 100%;
+				border-collapse: collapse;
+				font-size: small;
 			}
-			span.title{
-				border:1px solid darkgray;
-				background:rgb(89,94,113);
-				width:70px;
-				
+			table, th, td {
+				border: 1px solid white;
 				text-align: center;
 			}
-			#part1{
-				
-				margin:20px;
-				/* width:550px;  */
+			th {
+				background-color: rgb(89,94,113);
 			}
 			
+			a{
+				color: white;
+				text-decoration: none;
+			}
+			
+			#pager{
+				margin:10px;
+				font-size:small;
+				text-align:center;
+			}
 		
 		</style>
 	</head>
 	
-	<body>		
-		<h4>주문 번호 : [${order.no}] 번 상세 정보</h4>
-		<div id="part1">
-			<div id="part1_1">
-				<span class="title">상품번호: </span>
-				<span class="content">${product.no}</span><br/>
-				<span class="title">상품명: </span>
-				<span class="content">${product.name}</span><br/>
-				<span class="title">수량: </span>
-				<span class="content">${cart.amount}</span><br/>
-				<span class="title">가격: </span>
-				<span class="content">${product.price}</span><br/>
-				<hr/>
-			</div>
-
-		</div>
+	<body>
+		<h4>주문 번호 : [${order.no}] 번의 주문 상세 정보</h4>
+		
+		<table>
+			<tr>
+				<th style="width:50px">상품번호</th>
+				<th>상품명</th>
+				<th style="width:50px">수량</th>
+				<th style="width:80px">가격</th>
+				
+			</tr>
+			
+			<c:forEach var="orderproduct" items="${list}">
+				<tr>
+					<td>${product.no}</td>
+					<td><a href="product/detail?productNo=${product.no}">${product.name}</a></td>
+					<td>${cart.amount}</td>
+					<td>${product.price}</td>
+				</tr>
+			</c:forEach>
+		</table>
+		<div id="pager">
+	            <a href="list?pageNo=1">[처음]</a>
+	            <c:if test="${groupNo>1 }">
+	            <a href="list?pageNo=${startPageNo-pagesPerGroup}">[이전]</a><!-- 컨트롤러에서 만들어줘야할 변수 -->
+	            </c:if>
+	            
+	            <c:forEach var="i" begin="${startPageNo}" end="${endPageNo}">
+	               <a class='pageNo <c:if test="${pageNo==i}">selected</c:if>' href="list?pageNo=${i}">${i}</a>
+	            </c:forEach>
+	               
+	            <c:if test="${groupNo<totalGroupNo}">
+	            <a href="list?pageNo=${startPageNo+pagesPerGroup}">[다음]</a>
+	            </c:if>
+	            <a href="list?pageNo=${totalPageNo}">[맨끝]</a>
+	         </div>
 		
 	</body>
 </html>
