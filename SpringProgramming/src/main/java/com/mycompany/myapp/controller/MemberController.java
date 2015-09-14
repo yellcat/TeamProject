@@ -37,7 +37,6 @@ public class MemberController {
 	@RequestMapping("member/login")
 	public String login(String mid, String mpass, HttpSession session, Model model){
 		logger.info("login()");
-		/*Member member = memberservice.getMember(mid);*/
 		
 		String result = memberservice.loginCheck(mid, mpass, session);
 		model.addAttribute("result", result);

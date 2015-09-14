@@ -57,7 +57,7 @@
 			</c:forEach>
 			<tr>
 				<td>총가격: ${AllPrice}</td>
-				<td colspan="2"><a href="/cart/order?list=${list}">주문하기</a></td>
+				<td colspan="2"><a href="orderForm?list=${list}&AllPrice=${AllPrice}">주문하기</a></td>
 			</tr>
 		</table>
 		<%-- <div id="pager">

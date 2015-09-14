@@ -49,11 +49,19 @@ public class CartController {
 		return "redirect:/product/list";
 	}
 	
+	@RequestMapping("cart/orderForm")
+	public String orderForm(int AllPrice, Model model) {
+		logger.info("orderForm()");
+		/*model.addAttribute("list", list);*/
+		model.addAttribute("AllPrice", AllPrice);
+		return "cart/orderForm";
+	}
+	
 	@RequestMapping("cart/order")
-	public String order(List<Cart> list, Model model) {
+	public String order(int AllPrice, String Payment, Model model) {
 		logger.info("order()");
-		model.addAttribute("list", list);
-		return "cart/order";
+		
+		return "redirect:list";
 	}
 	
 }
