@@ -53,7 +53,7 @@
 			<c:forEach var="orderproduct" items="${list}">
 				<tr>
 					<td>${product.no}</td>
-					<td><a href="product/detail?productNo=${product.no}">${product.name}</a></td>
+					<td>${product.name}</td>
 					<td>${cart.amount}</td>
 					<td>${product.price}</td>
 				</tr>

@@ -34,6 +34,17 @@
 				font-size:small;
 				text-align:center;
 			}
+			#pager a.pageNo.selected{
+				color:rgb(129,134,153);
+			}
+			
+			#pager a:hover{
+				color:rgb(99,104,123);
+			}
+			#name:hover{
+				color:gray;
+			}
+			
 		
 		</style>
 	</head>
@@ -51,7 +62,7 @@
 			<c:forEach var="product" items="${list}">
 				<tr>
 					<td>${product.no}</td>
-					<td><a href="detail?productNo=${product.no}">${product.name}</a></td>
+					<td><a href="detail?productNo=${product.no}" id="name">${product.name}</a></td>
 					<td>${product.price}</td>
 				</tr>
 			</c:forEach>
