@@ -45,10 +45,10 @@ public class OrderProductDao {
 	
 	
 	public List<OrderProduct> selectByPk(int rownum, int rowPerPage, int orderno) {
-		String sql = "select * from orderproducts"
+		String sql = "select orderproduct_no, order_no, product_no, orderproduct_amount from orderproducts"
 				+ "order by orderproduct_no desc "
-				+ "where order_no=? "
-				+ "limit ?,?";
+				+ "limit ?,?"
+				+ "where order_no=? ";
 		List<OrderProduct> list=jdbcTemplate.query
 		(sql,
 			new Object[] {(rownum-1)*rowPerPage, rowPerPage,orderno},

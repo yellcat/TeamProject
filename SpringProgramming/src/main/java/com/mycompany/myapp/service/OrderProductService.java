@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 
 import com.mycompany.myapp.dao.OrderProductDao;
 import com.mycompany.myapp.dto.OrderProduct;
-import com.mycompany.myapp.dto.Product;
 
 @Component
 public class OrderProductService {
