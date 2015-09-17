@@ -25,7 +25,6 @@ public class CartController {
 	public String list(HttpSession session, Model model) {
 		logger.info("list()");
 		String memberId = (String)session.getAttribute("memberId");
-		logger.info(memberId);
 		List<Cart> list = cartservice.getCart(memberId);	
 		int AllPrice = cartservice.getAllPrice(list);
 		
