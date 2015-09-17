@@ -63,7 +63,7 @@ public class CartController {
 	public String order(HttpSession session, int AllPrice, String Payment, Model model) {
 		logger.info("order()");
 		String memberId = (String)session.getAttribute("memberId");
-		
+		logger.info(String.valueOf(AllPrice));
 		cartservice.order(memberId, AllPrice, Payment);
 		
 		return "redirect:list";
