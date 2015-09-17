@@ -18,11 +18,13 @@
 				function sendData(){
 					
 					var order=document.order;
-					var AllPrice=document.order.AllPrice;
-					var Payment=document.order.Payment;
+					var select = document.getElementById("Payment");
 					
-					if(payment.value==""){
-						alret("결제 방식을 선택해주세요");
+					var Payment = select.options[select.selectedIndex].value;
+					var AllPrice=document.order.AllPrice;
+					
+					if(Payment.value==""){
+						alert("결제 방식을 선택해주세요");
 						return;
 					}
 					order.submit();
@@ -30,7 +32,7 @@
 			</script>
 	<body>
 		<br/><br/><br/><br/><br/>
-		<form action="order">
+		<form id="order" name="order" method="post" action="order">
 		<div id="orderForm">
 		<table>
 			<tr>
@@ -47,10 +49,10 @@
 				</tr>
 			</c:forEach>
 			<tr>
-				<td>총가격: ${AllPrice}</td>
+				<td>총가격: ${AllPrice}<input type="hidden" name="AllPrice" value="${AllPrice}"/></td>
 				<td>결제방식</td>
-				<td class="title">
-					<select name="Payment">
+				<td>
+					<select id="Payment"name="Payment">
 						<option value="카드">카드</option>
 						<option value="계좌이체">계좌이체</option>
 						<option value="상품권">상품권</option>
