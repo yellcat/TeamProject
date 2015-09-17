@@ -1,18 +1,13 @@
 package com.mycompany.myapp.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
 import com.mycompany.myapp.dto.Product;
@@ -20,29 +15,6 @@ import com.mycompany.myapp.dto.Product;
 public class ProductDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	public Integer insert(Product product){
-		Integer pk = null;	
-		String sql = "insert into products "
-				+ "(product_name, product_price, product_original_file_name, product_filesystem_name, product_content_type) "
-				+ "values (?, ?, ?, ?, ?)";
-		KeyHolder keyHolder = new GeneratedKeyHolder();
-		jdbcTemplate.update(new PreparedStatementCreator(){
-
-			@Override
-			public PreparedStatement createPreparedStatement(Connection conn) throws SQLException {
-				PreparedStatement pstmt = conn.prepareStatement(sql, new String[] {"product_no"});
-				pstmt.setString(1, product.getName());
-				pstmt.setInt(2, product.getPrice());
-				pstmt.setString(3, product.getOriginalFilename());
-				pstmt.setString(4, product.getFilesystemName());
-				pstmt.setString(5, product.getContentType());
-				return pstmt;
-			}
-		}, keyHolder);	
-		
-		pk = keyHolder.getKey().intValue();
-		return pk;
-	}
 	
 	public List<Product> selectByPage(int rownum, int rowPerPage){
 		String sql = ""
@@ -92,21 +64,7 @@ public class ProductDao {
 			);
 		return product;
 	}
-	
-	public int update(Product product){
-		String sql = 
-				"update products set product_name = ?, product_price = ? where product_no = ?";
-		int rows = jdbcTemplate.update(sql, product.getNo(), product.getName(), product.getPrice());
-		return rows; 
-	}
-	
-	public int delete(int productNo){
-		String sql = "delete from products where product_no = ?";
-		
-		int rows = jdbcTemplate.update(sql, productNo);
-		return rows;
-	}
-	
+
 	public int selectCount(){
 		String sql = "select count(*) from products";
 		int rows = jdbcTemplate.queryForObject(sql, Integer.class);

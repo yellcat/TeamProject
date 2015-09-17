@@ -13,9 +13,6 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
-
-import com.mycompany.myapp.dto.Order;
-import com.mycompany.myapp.dto.Product;
 import com.mycompany.myapp.dto.OrderProduct;
 
 @Component
@@ -47,10 +44,14 @@ public class OrderProductDao {
 	}
 	
 	
-	public OrderProduct selectByPk(int orderproductno) {
-		String sql = "select * from orderproducts where orderproduct_no=?";
-		OrderProduct orderproduct=jdbcTemplate.queryForObject(sql,
-			new Object[] {orderproductno},
+	public List<OrderProduct> selectByPk(int rownum, int rowPerPage, int orderno) {
+		String sql = "select * from orderproducts"
+				+ "order by orderproduct_no desc "
+				+ "where order_no=? "
+				+ "limit ?,?";
+		List<OrderProduct> list=jdbcTemplate.query
+		(sql,
+			new Object[] {(rownum-1)*rowPerPage, rowPerPage,orderno},
 			new RowMapper<OrderProduct>() { 
 				@Override
 				public OrderProduct mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -64,8 +65,12 @@ public class OrderProductDao {
 				}
 			}
 		);
-		return orderproduct;
+		return list;
 	}
 	
-	
+	public int selectCount(){
+		String sql = "select count(*) from orderproducts";
+		int rows = jdbcTemplate.queryForObject(sql, Integer.class);
+		return rows;
+	}
 }
