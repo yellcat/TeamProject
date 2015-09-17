@@ -75,9 +75,9 @@
 					<div>
 						<h2>ACCOUNT</h2>
 						<ul>
-							<li><a href="member/joinForm" target="iframe">Sign up</a></li>
 							<li><a href="cart/list" target="iframe">Cart</a></li>
 							<li><a href="order/list" target="iframe">Order Record</a></li>
+							<li><a href="#">Coming soon...</a></li>
 						</ul>
 					</div>
 				</li>
@@ -112,12 +112,11 @@
 					<table>
 						<tr>
 							<td style="text-align: center; vertical-align: middle;">
-							<span id="loginMid">xxx</span>님 환영합니다<br /> 
+							<span id="loginMid">xxx</span>님 환영합니다 
 							<input id="logout" type="button" value="logout" />
 							</td>
 						</tr>
 					</table>
-				</div>
 				</div>
 			</div>
 		</footer>	
