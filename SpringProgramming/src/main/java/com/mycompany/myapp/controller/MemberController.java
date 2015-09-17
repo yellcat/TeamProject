@@ -19,7 +19,7 @@ public class MemberController {
 	private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
 
 	@Autowired
-	private MemberService memberservice;//객체를 생성해주지 않아도 Autowired를 통해 생성
+	private MemberService memberservice;//媛앹껜瑜� �깮�꽦�빐二쇱� �븡�븘�룄 Autowired瑜� �넻�빐 �깮�꽦
 	
 	@RequestMapping("member/joinForm")
 	public String joininForm(){
@@ -37,7 +37,6 @@ public class MemberController {
 	@RequestMapping("member/login")
 	public String login(String mid, String mpass, HttpSession session, Model model){
 		logger.info("login()");
-		
 		String result = memberservice.loginCheck(mid, mpass, session);
 		model.addAttribute("result", result);
 		
