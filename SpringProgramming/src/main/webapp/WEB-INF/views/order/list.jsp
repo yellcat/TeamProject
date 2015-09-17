@@ -52,7 +52,7 @@
 			<c:forEach var="order" items="${list}">
 				<tr>
 					<td>${order.date}</td>
-					<td><a href="orderproduct/detail?orderNo=${order.no}">${order.no}</a></td>
+					<td><a href="orderproduct/list?orderNo=${order.no}">${order.no}</a></td>
 					<td>${order.price}</td>
 					<td>${order.payment}</td>
 				</tr>
