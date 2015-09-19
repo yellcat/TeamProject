@@ -29,4 +29,13 @@ public class OrderService {
 		
 	}
 	
+	public List<Order> getPage(String member_id, int rownum, int rowPerPage) {
+		List<Order> list = odao.selectByPage(member_id, rownum, rowPerPage);
+		return list;
+	}
+	
+	public int getTotalorderNo() {
+		return odao.selectCount();
+	}
+	
 }

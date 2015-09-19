@@ -89,8 +89,40 @@ public class OrderDao {
 			    		 }			    		 
 			    	);
 			     	return list;
-			    }		
+			    }
 			
+			public List<Order> selectByPage(String member_id, int rownum, int rowPerPage) {				
+				String sql = ""
+						+ "select order_date, order_no, order_price, order_payment "						
+						+ "from orders "
+						+ "where member_id= ? "						
+						+ "order by order_no desc "
+						+ "limit ?, ?";
+				
+				List<Order> list = jdbcTemplate.query(
+						sql,
+						new Object[] { member_id, (rownum-1)*rowPerPage, rowPerPage},
+						new RowMapper<Order>(){
+
+							@Override
+							public Order mapRow(ResultSet rs, int rowNo) throws SQLException {
+								Order order = new Order();
+								order.setDate(rs.getDate("order_date"));
+								order.setNo(rs.getInt("order_no"));
+								order.setPrice(rs.getInt("order_price"));
+								order.setPayment(rs.getString("order_payment"));								
+								
+								return order;
+							}						
+						});
+					return list;
+				}
+			
+			public int selectCount(){
+				String sql = "select count(*) from orders";
+				int rows = jdbcTemplate.queryForObject(sql, Integer.class);
+				return rows;
+			}
 }
 			    		 
 			   
