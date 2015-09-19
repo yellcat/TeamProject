@@ -23,6 +23,7 @@
 								if(result == "success"){
 									$("#in").hide();
 									$("#out").show();
+									$("#account").show();
 									$("#loginMid").html(mid);
 								}else if(result=="wrong_mid"){
 									alert("Non id");
@@ -43,6 +44,7 @@
 								if(result == "success"){
 									$("#in").show();
 									$("#out").hide();
+									$("#account").hide();
 									$("loginMid").html("xxx");
 								}
 							}
@@ -78,7 +80,7 @@
 
 				
 				<!-- menu -->
-				<li>
+				<li id="account" >
 					<a href="#">ACCOUNT</a>
 					<div>
 						<h2>ACCOUNT</h2>
