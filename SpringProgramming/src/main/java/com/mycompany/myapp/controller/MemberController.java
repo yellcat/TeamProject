@@ -38,7 +38,7 @@ public class MemberController {
 		
 		logger.info("join()");
 		memberservice.join(member);
-		return "member/join";
+		return "member/joinResult";
 	}
 	
 	@RequestMapping("member/login")
@@ -47,6 +47,14 @@ public class MemberController {
 		String result = memberservice.loginCheck(mid, mpass, session);
 		model.addAttribute("result", result);
 		
+		return "member/result";
+	}
+	
+	@RequestMapping("member/idCheck")
+	public String idCheck(String mid, Model model){
+		logger.info("idCheck()");
+		String result = memberservice.idCheck(mid);
+		model.addAttribute("result", result);
 		return "member/result";
 	}
 	

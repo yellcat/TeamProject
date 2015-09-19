@@ -39,6 +39,17 @@ public class MemberService {
 	
 	public void delete(String memberId){
 		mdao.delete(memberId);
+	}
+
+	public String idCheck(String id) {
+		String result;
+		Member member = getMember(id);
+		if(member!=null||id==""){
+			result="unable";
+		}else{
+			result="able";
+		}
+		return result;
 	}	
 
 }

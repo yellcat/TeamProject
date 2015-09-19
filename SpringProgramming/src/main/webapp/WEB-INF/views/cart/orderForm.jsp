@@ -58,21 +58,21 @@
          }
 	</style>
 	<script type="text/javascript">
-				function sendData(){
-					
-					var order=document.order;
-					var select = document.getElementById("Payment");
-					
-					var Payment = select.options[select.selectedIndex].value;
-					var AllPrice=document.order.AllPrice;
-					
-					if(Payment.value==""){
-						alert("결제 방식을 선택해주세요");
-						return;
-					}
-					order.submit();
-				}
-			</script>
+		function sendData() {
+
+			var order = document.order;
+			var select = document.getElementById("Payment");
+
+			var Payment = select.options[select.selectedIndex].value;
+			var AllPrice = document.order.AllPrice;
+
+			if (Payment.value == "") {
+				alert("결제 방식을 선택해주세요");
+				return;
+			}
+			order.submit();
+		}
+	</script>
 	<body>
 		<h4>결제창</h4>
 		<form id="order" name="order" method="post" action="order">
