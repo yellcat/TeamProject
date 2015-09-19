@@ -33,13 +33,21 @@
 						});
 					});
 					$("#logout").click(function(){
-						$("#in").show();
-						$("#out").hide();
-						$("loginMid").html("xxx");
+						$.ajax({
+							url:"member/logout",
+							method:"POST",
+							data:{"mid":""},
+							success:function(data){
+								console.log(data);
+								var result = data.trim();
+								if(result == "success"){
+									$("#in").show();
+									$("#out").hide();
+									$("loginMid").html("xxx");
+								}
+							}
+						});
 					});
-					$("#join").click(function(){
-						$("#")
-					})
 				});
 		</script>
 	<body>
@@ -99,7 +107,9 @@
 				<div id="in">
 					<table>
 						<tr>
-							<a id="SignUp" href="member/joinForm" target="iframe">Sign up</a>
+							<td>
+								<a id="SignUp" href="member/joinForm" target="iframe">Sign up</a>
+							</td>
 						</tr>
 						<tr>
 							<td>  ID <input id="mid" type="text" name="mid"/>  PW <input id="mpass" type="password" name="mpass"/></td>
