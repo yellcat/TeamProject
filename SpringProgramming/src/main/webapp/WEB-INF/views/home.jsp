@@ -46,6 +46,9 @@
 									$("#out").hide();
 									$("#account").hide();
 									$("loginMid").html("xxx");
+									$("#in").each(function() {
+						                this.reset();
+						            });
 								}
 							}
 						});
@@ -106,7 +109,7 @@
 		<footer>
 			
 			<div id="loginForm">
-				<div id="in">
+				<form id="in">
 					<table>
 						<tr>
 							<td>
@@ -114,12 +117,12 @@
 							</td>
 						</tr>
 						<tr>
-							<td>  ID <input id="mid" type="text" name="mid"/>  PW <input id="mpass" type="password" name="mpass"/></td>
+							<td>  ID <input id="mid" type="text" name="mid"/>  
+								  PW <input id="mpass" type="password" name="mpass"/></td>
 							<td><input id="login" type="button" value="login"/></td>  
 						</tr>
 					</table>
-					
-				</div>
+				</form>
 				<div id="out" style="height: 100%">
 					<table>
 						<tr>
