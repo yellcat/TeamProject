@@ -28,7 +28,14 @@ public class MemberController {
 	}
 	
 	@RequestMapping("member/join")
-	public String join(Member member){
+	public String join(String id, String pw, String name, String tel1, String tel2, String tel3, String address){
+		Member member = new Member();
+		member.setId(id);
+		member.setPw(pw);
+		member.setName(name);
+		member.setMobile(tel1+tel2+tel3);
+		member.setAddress(address);
+		
 		logger.info("join()");
 		memberservice.join(member);
 		return "member/join";

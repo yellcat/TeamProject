@@ -18,6 +18,10 @@
 				display: inline-block;
 			}
 			
+			.tel{
+				width: 45px;
+			}
+			
 			legend {
 				text-align: center;
 			}
@@ -49,8 +53,17 @@
 						<td><input type="text" name="name"></td>
 					</tr>
 					<tr>
-						<td>Mobile('-'제외)</td>
-						<td><input type="tel" name="tel"></td>
+						<td>Mobile</td>
+						<td>
+							<select name="tel1">
+								<option value="010">010</option>
+								<option value="011">011</option>
+							</select>
+							-
+							<input class="tel" type="text" name="tel2"/>
+							-
+							<input class="tel" type="text" name="tel3"/>
+						</td>
 					</tr>
 					<tr>
 						<td>Address</td>
