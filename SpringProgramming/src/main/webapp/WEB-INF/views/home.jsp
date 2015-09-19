@@ -62,7 +62,7 @@
 		
 		<!-- header -->
 		<header>
-			<h1><a href="#"><img src="resources/img/logo.png" alt="jamongtour"></a></h1>
+			<h1><a href="${pageContext.request.contextPath}/"><img src="resources/img/logo.png" alt="jamongtour"></a></h1>
 		</header>
 	
 
