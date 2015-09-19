@@ -59,7 +59,7 @@
 		
 		<!-- header -->
 		<header>
-			<h1><a href="#"><img src="img/logo.png" alt="jamongtour"/></a></h1>
+			<h1><a href="#"><img src="resources/img/logo.png" alt="jamongtour"/></a></h1>
 		</header>
 	
 
