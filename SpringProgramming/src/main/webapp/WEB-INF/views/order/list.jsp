@@ -9,10 +9,12 @@
 		<style type="text/css">
 			body {
 				color: white;
+				text-align:center;
 				text-decoration: none;
 			}
 			table {
-				width: 100%;
+				margin: auto;
+				width: 500px;
 				border-collapse: collapse;
 				font-size: small;
 			}

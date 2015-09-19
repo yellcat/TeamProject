@@ -58,12 +58,13 @@ public class OrderDao {
 					        order.setDate(rs.getDate("order_date"));
 					        order.setPayment(rs.getString("order_payment"));
 					        order.setPrice(rs.getInt("order_price"));
-					        order.setId(rs.getString("member_id"));
+					        order.setId(rs.getString("member_id"));					              
 					        
 							return order;
 						}
 		    		 }
-		    	);
+		    	);		     
+		        
 		      return order;
 		   }
 		   
@@ -79,6 +80,8 @@ public class OrderDao {
 							public Order mapRow(ResultSet rs, int arg1) throws SQLException {
 								Order order = new Order();
 								order.setNo(rs.getInt("order_no"));
+								order.setDate(rs.getDate("order_date"));
+								order.setPayment(rs.getString("order_payment"));
 								order.setId(rs.getString("member_id"));
 								order.setPrice(rs.getInt("order_price"));
 								return order;
