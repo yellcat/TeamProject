@@ -34,12 +34,6 @@
 				text-align: center;
 			}
 		</style>
-		<script type="text/javascript">
-			function func1() {
-				console.log("fun1()");
-				document.join.submit();
-			}
-		</script>
 		<script src="${pageContext.request.contextPath}/resources/js/jquery-1.11.3.min.js"></script>
 		<script type="text/javascript">
 			$(function (){
@@ -141,7 +135,7 @@
 					</tr>
 				</table>
 					<div id="buttonGroup">
-						<input id="btnSubmit" type="button" value="Join" onclick="func1()">
+						<input id="btnSubmit" type="button" value="Join">
 						<input type="reset" value="Reset">
 					</div>	
 			</fieldset>
