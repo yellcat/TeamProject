@@ -29,6 +29,7 @@ public class ProductController {
 		logger.info("list()");
 		
 		session.setAttribute("pageNo",pageNo);
+		String memberId = (String)session.getAttribute("memberId");
 		
 		int rowsPerPage = 10;
 		int pagesPerGroup = 5;
@@ -49,6 +50,7 @@ public class ProductController {
 		List<Product> list = productservice.getPage(pageNo, rowsPerPage);
 		model.addAttribute("list", list);
 		
+		model.addAttribute("memberid",memberId);
 		model.addAttribute("pagesPerGroup", pagesPerGroup);
 		model.addAttribute("totalPageNo", totalPageNo);
 		model.addAttribute("totalGroupNo", totalGroupNo);
