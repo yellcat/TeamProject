@@ -45,13 +45,13 @@ public class OrderProductDao {
 	
 	
 	public List<OrderProduct> selectByPk(int rownum, int rowPerPage, int orderno) {
-		String sql = "select * from orderproducts"
-				+ "order by orderproduct_no desc "
+		String sql = "select * from orderproducts "
 				+ "where order_no=? "
+				+ "order by orderproduct_no desc "
 				+ "limit ?,?";
 		List<OrderProduct> list=jdbcTemplate.query
 		(sql,
-			new Object[] {(rownum-1)*rowPerPage, rowPerPage,orderno},
+			new Object[] {orderno,(rownum-1)*rowPerPage, rowPerPage},
 			new RowMapper<OrderProduct>() { 
 				@Override
 				public OrderProduct mapRow(ResultSet rs, int rowNum) throws SQLException {
