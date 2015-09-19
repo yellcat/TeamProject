@@ -5,6 +5,34 @@ public class OrderProduct {
 	private int orderproductamount;
 	private int productno;
 	private int orderproductno;
+	private String membername;
+	private String productname;
+	private int productprice;
+	private int allprice;
+	public String getMembername() {
+		return membername;
+	}
+	public void setMembername(String membername) {
+		this.membername = membername;
+	}
+	public String getProductname() {
+		return productname;
+	}
+	public void setProductname(String productname) {
+		this.productname = productname;
+	}
+	public int getProductprice() {
+		return productprice;
+	}
+	public void setProductprice(int productprice) {
+		this.productprice = productprice;
+	}
+	public int getAllprice() {
+		return allprice;
+	}
+	public void setAllprice(int allprice) {
+		this.allprice = allprice;
+	}
 	public int getOrderno() {
 		return orderno;
 	}
