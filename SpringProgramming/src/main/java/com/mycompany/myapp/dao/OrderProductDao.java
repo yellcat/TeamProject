@@ -15,6 +15,7 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 import com.mycompany.myapp.dto.OrderProduct;
 
+
 @Component
 public class OrderProductDao {
 	@Autowired
@@ -44,22 +45,21 @@ public class OrderProductDao {
 	}
 	
 	
-	public List<OrderProduct> selectByPk(int rownum, int rowPerPage, int orderno) {
+	public List<OrderProduct> selectByPk(int pageno, int rowsPerPage, int orderno) {
 		String sql = "select * from orderproducts "
 				+ "where order_no=? "
 				+ "order by orderproduct_no desc "
 				+ "limit ?,?";
 		List<OrderProduct> list=jdbcTemplate.query
 		(sql,
-			new Object[] {orderno,(rownum-1)*rowPerPage, rowPerPage},
+			new Object[] {orderno,(pageno-1)*rowsPerPage, rowsPerPage},
 			new RowMapper<OrderProduct>() { 
 				@Override
 				public OrderProduct mapRow(ResultSet rs, int rowNum) throws SQLException {
 					OrderProduct orderproduct = new OrderProduct();
-					orderproduct.setOrderproductno(rs.getInt("orderproduct_no"));
-					orderproduct.setOrderno(rs.getInt("order_no"));
-					orderproduct.setOrderproductno(rs.getInt("product_no"));
 					orderproduct.setOrderproductamount(rs.getInt("orderproduct_amount"));
+					orderproduct.setOrderno(rs.getInt("order_no"));
+					orderproduct.setProductno(rs.getInt("product_no"));
 					
 					return orderproduct;
 				}

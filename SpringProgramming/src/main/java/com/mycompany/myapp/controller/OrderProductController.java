@@ -22,7 +22,7 @@ public class OrderProductController {
 	
 	@Autowired
 	private OrderProductService orderproductservice;//객체를 생성해주지 않아도 Autowired를 통해 생성
-	@RequestMapping("orderproduct/list")
+	@RequestMapping("/orderproduct/list")
 	public String list(@RequestParam(defaultValue="1") int pageNo,int orderNo, Model model, HttpSession session){
 		logger.info("list()");
 		
@@ -46,7 +46,13 @@ public class OrderProductController {
 		if (groupNo==totalGroupNo) {endPageNo = totalPageNo;}
 		
 		List<OrderProduct> list = orderproductservice.getPage(pageNo, rowsPerPage,orderNo);
-		model.addAttribute("list", list);
+		String membername = null;
+		int AllPrice = 0;
+		
+		if(!list.isEmpty()){
+			membername= list.get(0).getMembername();
+			AllPrice = list.get(0).getAllprice();
+		}
 		
 		model.addAttribute("pagesPerGroup", pagesPerGroup);
 		model.addAttribute("totalPageNo", totalPageNo);
@@ -55,6 +61,9 @@ public class OrderProductController {
 		model.addAttribute("startPageNo", startPageNo);
 		model.addAttribute("endPageNo", endPageNo);
 		model.addAttribute("pageNo", pageNo);
+		model.addAttribute("orderNo",orderNo);
+		model.addAttribute("membername",membername);
+		model.addAttribute("AllPrice", AllPrice);
 		model.addAttribute("list", list);
 
 		return "orderproduct/list";

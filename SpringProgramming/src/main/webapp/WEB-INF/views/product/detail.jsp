@@ -76,12 +76,19 @@
                
                
                var amount=document.tocart.amount;
+               
+               var memberid=document.tocart.memberid;
             
                
                var productno=document.tocart.productno;
                
                if(amount.value==""||productno.value==""){
+            	   alert("상품 개수를 선택해주세요.");
                   return;
+               }
+               if(memberid.value==""){
+            	   alert("로그인 후 이용하세요.");
+            	   return;
                }
                //서버로 전송
                tocart.submit();
@@ -115,7 +122,8 @@
             <div id="amounttocart">
           		  한번에 10개까지 주문가능:
             <input type="number" name="amount" min="1" max="10" style="color:black; text-align:center;"></div>
-            <input type="hidden" name="productno" value="${product.no}" /><br>
+            <input type="hidden" name="productno" value="${product.no}" />
+            <input type="hidden" name="memberid" value="${memberid}"/><br>
          </form>
          <hr/>
          <a href="javascript:sendData()">장바구니</a>
