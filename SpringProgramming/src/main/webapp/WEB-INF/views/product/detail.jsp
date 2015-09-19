@@ -83,7 +83,7 @@
                var productno=document.tocart.productno;
                
                if(amount.value==""||productno.value==""){
-            	   alert("상품 개수를 선택해주세요.");
+            	   alert("인원을 선택해주세요.");
                   return;
                }
                if(memberid.value==""){
