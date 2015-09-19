@@ -45,9 +45,9 @@ public class MemberController {
 	
 	@RequestMapping("member/logout")
 	public String logout(String mid, HttpSession session, Model model){
-		logger.info("login()");
+		logger.info("logout()");
 		session.setAttribute("memberId", mid);
-		String result="seccess";
+		String result="success";
 		model.addAttribute("result", result);
 		
 		return "member/result";
